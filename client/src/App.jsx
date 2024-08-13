@@ -1,15 +1,22 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "../src/pages/Home.jsx"
+import SignUp from "../src/pages/SignUp.jsx"
+import About from "../src/pages/About"
+import SignIn from "./pages/SignIn.jsx"
+import Profile from "../src/pages/Profile"
+import Header from "./components/Header.jsx"
 
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <> 
-      <p className='text-blue-500'>hi </p>
-    </>
+    <BrowserRouter>
+    <Header />
+      <Routes>
+        <Route path="/home" element={<Home />} />
+        <Route path="/sign-in" element={<SignIn />} />
+        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      </BrowserRouter>
   )
 }
-
-export default App
